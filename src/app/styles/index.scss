@@ -1,2 +1,11 @@
 @import "./variables/global.scss";
 @import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+.app {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $colorLines;
+  font-family: "PT Sans", sans-serif;
+}

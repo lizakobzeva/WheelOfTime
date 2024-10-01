@@ -1,0 +1,46 @@
+@import "app/styles/index.scss";
+
+.accentSecondText {
+  color: $colorSecondAccent;
+}
+.MainPage {
+  max-width: 1440px;
+  width: 100%;
+  height: 100vh;
+  padding-top: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: linear-gradient(rgb($colorLines, 0.2), transparent 1px),
+    linear-gradient(90deg, rgb($colorLines, 0.2), transparent 1px);
+  background: linear-gradient(rgba(66, 86, 122, 0.2), transparent 1px),
+    linear-gradient(90deg, rgba(66, 86, 122, 0.2), transparent 1px);
+  background-size: calc(50% - 1px) 60vh;
+  background-position-y: -13vh;
+  background-position-x: left;
+
+  .title {
+    gap: 70px;
+    display: inline-flex;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 5px;
+      background: linear-gradient($colorFirstAccent, $colorSecondAccent);
+    }
+  }
+  .years {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $colorFirstAccent;
+  }
+}

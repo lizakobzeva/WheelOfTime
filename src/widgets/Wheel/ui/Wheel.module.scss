@@ -1,0 +1,71 @@
+@import "app/styles/index.scss";
+.wheel {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vh;
+  height: 50vh;
+  border-radius: 50%;
+  border: 1px solid rgb($colorLines, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .PointersBlock {
+    position: absolute;
+    width: calc(100% + 56px);
+    height: calc(100% + 56px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .wheelPoint {
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      transition: 300ms;
+      height: 56px;
+      border-radius: 50%;
+      background-color: $colorLines;
+      background-color: white;
+      border: 1px solid rgb($colorLines, 0.2);
+    }
+    .miniPoint {
+      cursor: pointer;
+      position: absolute;
+      transform: scale(0.15);
+      background-color: $colorLines;
+      &:hover {
+        @extend .wheelPoint;
+        transform: scale(1);
+      }
+    }
+    :nth-of-type(1) {
+      top: calc(50% - 56px / 2);
+      left: 0;
+    }
+    :nth-of-type(2) {
+      top: 6%;
+      left: 22%;
+    }
+    :nth-of-type(3) {
+      top: 6%;
+      right: 22%;
+    }
+    :nth-of-type(4) {
+      top: calc(50% - 56px / 2);
+      right: 0;
+    }
+    :nth-of-type(5) {
+      bottom: 6%;
+      right: 22%;
+    }
+    :nth-of-type(6) {
+      bottom: 6%;
+      left: 22%;
+    }
+  }
+}
