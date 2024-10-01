@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   .PointersBlock {
+    transition: 1s;
     position: absolute;
     width: calc(100% + 56px);
     height: calc(100% + 56px);

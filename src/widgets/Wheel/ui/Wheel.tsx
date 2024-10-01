@@ -9,9 +9,13 @@ interface WheelProps {
 const Wheel = ({ initialValue }: WheelProps) => {
   const [currentValue, setCurrentValue] = useState(initialValue);
   const wheelValuesArray = [1, 2, 3, 4, 5, 6];
+
   return (
     <div className={style.wheel}>
-      <div className={style.PointersBlock}>
+      <div
+        className={style.PointersBlock}
+        style={{ transform: `rotate(${(3 - currentValue) * 60}deg)` }}
+      >
         {wheelValuesArray.map((item, id) => (
           <div
             key={id}
@@ -20,33 +24,11 @@ const Wheel = ({ initialValue }: WheelProps) => {
               [style.miniPoint]: item !== currentValue,
             })}
           >
-            {wheelValuesArray[id]}
+            <p style={{ transform: `rotate(${(3 - currentValue) * -60}deg)` }}>
+              {wheelValuesArray[id]}
+            </p>
           </div>
         ))}
-        {/* <div className={style.around}>
-          <div className={classNames(style.wheelPoint, style.miniPoint)}>
-            {wheelValuesArray[0]}
-          </div>
-          <div className={classNames(style.wheelPoint)}>
-            {wheelValuesArray[1]}
-          </div>
-        </div>
-        <div className={style.between}>
-          <div className={classNames(style.wheelPoint, style.miniPoint)}>
-            {wheelValuesArray[2]}
-          </div>
-          <div className={classNames(style.wheelPoint, style.miniPoint)}>
-            {wheelValuesArray[3]}
-          </div>
-        </div>
-        <div className={style.around}>
-          <div className={classNames(style.wheelPoint, style.miniPoint)}>
-            {wheelValuesArray[4]}
-          </div>
-          <div className={classNames(style.wheelPoint, style.miniPoint)}>
-            {wheelValuesArray[5]}
-          </div>
-        </div> */}
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const MainPage = () => {
           2015 <span className={style.accentSecondText}>2022</span>
         </h1>
       </div>
-      <Wheel initialValue={1} />
+      <Wheel initialValue={3} />
       <DateSlider list={FIRST_TEXT_FOR_DATE_SLIDES} />
     </div>
   );
