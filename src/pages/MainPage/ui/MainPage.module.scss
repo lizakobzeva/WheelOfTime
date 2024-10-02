@@ -1,8 +1,5 @@
 @import "app/styles/index.scss";
 
-.accentSecondText {
-  color: $colorSecondAccent;
-}
 .MainPage {
   max-width: 1440px;
   width: 100%;
@@ -31,16 +28,5 @@
       width: 5px;
       background: linear-gradient($colorFirstAccent, $colorSecondAccent);
     }
-  }
-  .years {
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $colorFirstAccent;
   }
 }
