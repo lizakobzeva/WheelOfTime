@@ -7,9 +7,6 @@ import useDateStore from "entities/model/DateSlice";
 const Years = () => {
   const current = useDateStore((state) => state.currentDateId);
 
-  const updateCurrentDateId = useDateStore(
-    (state) => state.updateCurrentDateId
-  );
   const startEl = useRef();
   const endEl = useRef();
   const [start, setStart] = useState(YEARS_LIST[current]?.dateStart || 0);

@@ -8,7 +8,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: ["@svgr/webpack"],
   };
 
-  const cssLoader = {
+  const scssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
       isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -24,7 +24,10 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       "sass-loader",
     ],
   };
-
+  const cssLoader = {
+    test: /\.css$/,
+    use: ["style-loader", "css-loader"],
+  };
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -40,5 +43,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [typescriptLoader, cssLoader, fileLoader, svgLoader];
+  return [typescriptLoader, scssLoader, cssLoader, fileLoader, svgLoader];
 }

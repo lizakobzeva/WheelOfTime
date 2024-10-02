@@ -1,5 +1,11 @@
+.DateSlider {
+  padding: 0 80px;
+}
 .dates {
+  height: 25%;
+  width: 85%;
   display: flex;
-  padding: 80px;
-  gap: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
