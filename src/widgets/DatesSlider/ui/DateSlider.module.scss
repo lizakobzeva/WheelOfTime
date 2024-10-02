@@ -1,11 +1,25 @@
 .DateSlider {
-  padding: 0 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .dates {
-  height: 25%;
-  width: 85%;
+  cursor: grab;
   display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.SliderButton {
+  cursor: pointer;
+}
+
+.prev {
+  transform: rotate(180deg);
+}
+
+.swiperButtonDisable {
+  opacity: 0;
 }

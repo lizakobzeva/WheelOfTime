@@ -3,25 +3,44 @@ import style from "./DateSlider.module.scss";
 import useDateStore from "entities/model/DateSlice";
 import { TEXT_FOR_DATE_SLIDES } from "shared/const/TextForDateSlides";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, FreeMode } from "swiper/modules";
+import NextIcon from "shared/assets/Next.svg";
 import "swiper/css";
+import classNames from "classnames";
 
 const DateSlider = () => {
   const current = useDateStore((state) => state.currentDateId);
   return (
-    <Swiper
-      className={style.dates}
-      slidesPerView={3}
-      spaceBetween={80}
-      navigation={true}
-      modules={[Navigation]}
-    >
-      {TEXT_FOR_DATE_SLIDES[current].map((dateItem, id) => (
-        <SwiperSlide key={id}>
-          <DateSliderBlock {...dateItem} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className={style.DateSlider}>
+      <div
+        id="prevButton"
+        className={classNames(style.SliderButton, style.prev)}
+      >
+        <NextIcon />
+      </div>
+      <Swiper
+        className={style.dates}
+        slidesPerView={3}
+        spaceBetween={80}
+        freeMode={true}
+        direction="horizontal"
+        navigation={{
+          nextEl: "#nextButton",
+          prevEl: "#prevButton",
+          disabledClass: `${style.swiperButtonDisable}`,
+        }}
+        modules={[Navigation, FreeMode]}
+      >
+        {TEXT_FOR_DATE_SLIDES[current].map((dateItem, id) => (
+          <SwiperSlide key={id}>
+            <DateSliderBlock {...dateItem} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div id="nextButton" className={style.SliderButton}>
+        <NextIcon />
+      </div>
+    </div>
   );
 };
 
