@@ -2,18 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import style from "./Years.module.scss";
 import { gsap } from "gsap";
 import { YEARS_LIST } from "shared/const/YearsList";
+import useDateStore from "entities/model/DateSlice";
 
-interface YearsProps {
-  currentValue: number;
-}
+const Years = () => {
+  const current = useDateStore((state) => state.currentDateId);
 
-const Years = ({ currentValue }: YearsProps) => {
+  const updateCurrentDateId = useDateStore(
+    (state) => state.updateCurrentDateId
+  );
   const startEl = useRef();
   const endEl = useRef();
-  const [current, setCurrent] = useState(currentValue);
   const [start, setStart] = useState(YEARS_LIST[current]?.dateStart || 0);
   const [end, setEnd] = useState(YEARS_LIST[current]?.dateEnd || 0);
   useEffect(() => {
+    setStart(YEARS_LIST[current]?.dateStart || 0);
+    setEnd(YEARS_LIST[current]?.dateEnd || 0);
     gsap.to(startEl.current, {
       innerText: start,
       duration: 1,
@@ -30,13 +33,6 @@ const Years = ({ currentValue }: YearsProps) => {
     });
   }, [current, start, end]);
 
-  const handleClick = (idx: number) => {
-    if (idx < 0) return;
-    if (idx >= YEARS_LIST.length) return;
-    setCurrent(idx);
-    setStart(YEARS_LIST[idx].dateStart);
-    setEnd(YEARS_LIST[idx].dateEnd);
-  };
   return (
     <div className={style.years}>
       <h1>
@@ -45,11 +41,6 @@ const Years = ({ currentValue }: YearsProps) => {
           {YEARS_LIST[0].dateEnd}
         </span>
       </h1>
-
-      <div>
-        <button onClick={() => handleClick(current - 1)}>назад</button>
-        <button onClick={() => handleClick(current + 1)}>вперед</button>
-      </div>
     </div>
   );
 };

@@ -14,8 +14,8 @@ const MainPage = () => {
           <br /> даты
         </h2>
       </div>
-      <Years currentValue={3} />
-      <Wheel initialValue={3} />
+      <Years />
+      <Wheel />
       <DateSlider list={FIRST_TEXT_FOR_DATE_SLIDES} />
     </div>
   );

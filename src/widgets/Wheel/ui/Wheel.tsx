@@ -1,13 +1,14 @@
 import classNames from "classnames";
 import style from "./Wheel.module.scss";
 import { useState } from "react";
+import useDateStore from "entities/model/DateSlice";
 
-interface WheelProps {
-  initialValue: number;
-}
+const Wheel = () => {
+  const currentValue = useDateStore((state) => state.currentDateId) + 1;
+  const updateCurrentDateId = useDateStore(
+    (state) => state.updateCurrentDateId
+  );
 
-const Wheel = ({ initialValue }: WheelProps) => {
-  const [currentValue, setCurrentValue] = useState(initialValue);
   const wheelValuesArray = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -19,7 +20,7 @@ const Wheel = ({ initialValue }: WheelProps) => {
         {wheelValuesArray.map((item, id) => (
           <div
             key={id}
-            onClick={() => setCurrentValue(item)}
+            onClick={() => updateCurrentDateId(id)}
             className={classNames(style.wheelPoint, {
               [style.miniPoint]: item !== currentValue,
             })}

@@ -8,8 +8,8 @@ interface DateSliderProps {
 const DateSlider = ({ list }: DateSliderProps) => {
   return (
     <div className={style.dates}>
-      {list.map((dateItem) => (
-        <DateSliderBlock {...dateItem} />
+      {list.map((dateItem, id) => (
+        <DateSliderBlock key={id} {...dateItem} />
       ))}
     </div>
   );
