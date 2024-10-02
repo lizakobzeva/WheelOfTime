@@ -4,7 +4,7 @@ import useDateStore from "entities/model/DateSlice";
 import { TEXT_FOR_DATE_SLIDES } from "shared/const/TextForDateSlides";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper/modules";
-import NextIcon from "shared/assets/Next.svg";
+import NextButtonIcon from "shared/assets/NextButton.svg";
 import "swiper/css";
 import classNames from "classnames";
 
@@ -16,12 +16,12 @@ const DateSlider = () => {
         id="prevButton"
         className={classNames(style.SliderButton, style.prev)}
       >
-        <NextIcon />
+        <NextButtonIcon />
       </div>
       <Swiper
         className={style.dates}
         slidesPerView={3}
-        spaceBetween={80}
+        spaceBetween={74}
         freeMode={true}
         direction="horizontal"
         navigation={{
@@ -38,7 +38,7 @@ const DateSlider = () => {
         ))}
       </Swiper>
       <div id="nextButton" className={style.SliderButton}>
-        <NextIcon />
+        <NextButtonIcon />
       </div>
     </div>
   );

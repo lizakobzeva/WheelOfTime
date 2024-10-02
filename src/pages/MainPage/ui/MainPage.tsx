@@ -1,8 +1,8 @@
-import classNames from "classnames";
 import style from "./MainPage.module.scss";
 import DateSlider from "widgets/DatesSlider";
 import Wheel from "widgets/Wheel";
 import Years from "widgets/Years";
+import Counter from "widgets/Counter";
 
 const MainPage = () => {
   return (
@@ -15,7 +15,11 @@ const MainPage = () => {
       </div>
       <Years />
       <Wheel />
-      <DateSlider />
+
+      <div className={style.OptionsBlock}>
+        <Counter />
+        <DateSlider />
+      </div>
     </div>
   );
 };

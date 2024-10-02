@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import style from "./Wheel.module.scss";
-import { useState } from "react";
 import useDateStore from "entities/model/DateSlice";
+import { WHEEL_VALUES } from "shared/const/WheelValues";
 
 const Wheel = () => {
   const currentValue = useDateStore((state) => state.currentDateId) + 1;
@@ -9,15 +9,13 @@ const Wheel = () => {
     (state) => state.updateCurrentDateId
   );
 
-  const wheelValuesArray = [1, 2, 3, 4, 5, 6];
-
   return (
     <div className={style.wheel}>
       <div
         className={style.PointersBlock}
         style={{ transform: `rotate(${(3 - currentValue) * 60}deg)` }}
       >
-        {wheelValuesArray.map((item, id) => (
+        {WHEEL_VALUES.map((item, id) => (
           <div
             key={id}
             onClick={() => updateCurrentDateId(id)}
@@ -26,7 +24,7 @@ const Wheel = () => {
             })}
           >
             <p style={{ transform: `rotate(${(3 - currentValue) * -60}deg)` }}>
-              {wheelValuesArray[id]}
+              {WHEEL_VALUES[id]}
             </p>
           </div>
         ))}

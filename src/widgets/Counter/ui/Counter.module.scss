@@ -1,0 +1,17 @@
+.Counter {
+  font-size: 14px;
+  padding-left: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+}
+.next {
+  transform: rotate(180deg);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
