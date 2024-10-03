@@ -20,14 +20,18 @@ const Wheel = () => {
             key={id}
             onClick={() => updateCurrentDateId(id)}
             className={classNames(style.wheelPoint, {
-              [style.miniPoint]: item !== currentValue,
+              [style.miniPoint]: id + 1 !== currentValue,
             })}
           >
             <p style={{ transform: `rotate(${(3 - currentValue) * -60}deg)` }}>
-              {WHEEL_VALUES[id]}
+              {id + 1}
             </p>
           </div>
         ))}
+      </div>
+
+      <div key={currentValue} className={style.pointTitle}>
+        <h3>{WHEEL_VALUES[currentValue - 1]}</h3>
       </div>
     </div>
   );
