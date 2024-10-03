@@ -18,6 +18,12 @@ select {
 
 h1 {
   font-size: 200px;
+  @media (max-width: 1000px) {
+    font-size: 150px;
+  }
+  @media (max-width: 750px) {
+    font-size: 56px;
+  }
 }
 
 h2 {
