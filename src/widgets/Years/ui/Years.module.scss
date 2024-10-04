@@ -10,6 +10,15 @@
   align-items: center;
   justify-content: center;
   color: $colorFirstAccent;
+  @include mobile {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
+    h1 {
+      font-size: 56px;
+    }
+  }
 }
 .accentSecondText {
   color: $colorSecondAccent;

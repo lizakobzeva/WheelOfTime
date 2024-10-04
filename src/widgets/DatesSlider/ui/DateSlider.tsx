@@ -25,9 +25,10 @@ const DateSlider = () => {
         </div>
       )}
       <Swiper
+        key={current}
         className={style.dates}
         slidesPerView={isTabletOrMobile ? 2 : 3}
-        spaceBetween={74}
+        spaceBetween={isTabletOrMobile ? 25 : 74}
         freeMode={true}
         direction="horizontal"
         navigation={
@@ -39,6 +40,7 @@ const DateSlider = () => {
         }
         pagination={
           isMobile && {
+            el: "#swiperPagination",
             clickable: true,
           }
         }
@@ -53,6 +55,11 @@ const DateSlider = () => {
       {!isMobile && (
         <div id="nextButton" className={style.SliderButton}>
           <NextButtonIcon />
+        </div>
+      )}
+      {isMobile && (
+        <div className={style.swiperPagination}>
+          <div id="swiperPagination"></div>
         </div>
       )}
     </div>

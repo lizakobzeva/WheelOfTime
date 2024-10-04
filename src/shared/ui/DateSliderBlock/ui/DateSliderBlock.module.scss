@@ -7,4 +7,13 @@
   p {
     font-size: 20px;
   }
+  @include mobile {
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
 }

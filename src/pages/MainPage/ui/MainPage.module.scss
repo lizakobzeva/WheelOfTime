@@ -17,7 +17,10 @@
   background-size: calc(50% - 1px) 60vh;
   background-position-y: -13vh;
   background-position-x: left;
-
+  @include mobile {
+    padding: 60px 20px 15px 20px;
+    background: none;
+  }
   .title {
     gap: 70px;
     display: inline-flex;
@@ -28,6 +31,14 @@
       width: 5px;
       background: linear-gradient($colorFirstAccent, $colorSecondAccent);
     }
+    @include mobile {
+      h2 {
+        font-size: 20px;
+      }
+      &::before {
+        display: none;
+      }
+    }
   }
 }
 .OptionsBlock {
@@ -35,4 +46,9 @@
   flex-direction: column;
   gap: 50px;
   height: 35%;
+  @include mobile {
+    height: 50%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
 }

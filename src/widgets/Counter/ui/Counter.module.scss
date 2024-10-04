@@ -1,3 +1,4 @@
+@import "app/styles/index.scss";
 .Counter {
   font-size: 14px;
   padding-left: 70px;
@@ -5,6 +6,12 @@
   flex-direction: column;
   gap: 20px;
   align-items: start;
+  @include mobile {
+    padding-left: 0;
+    gap: 10px;
+    z-index: 50;
+    width: 30%;
+  }
 }
 .next {
   transform: rotate(180deg);
@@ -14,4 +21,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  @include mobile {
+    gap: 10px;
+  }
 }
